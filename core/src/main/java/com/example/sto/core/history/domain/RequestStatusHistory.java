@@ -50,3 +50,4 @@ public class RequestStatusHistory {
     @Column(columnDefinition = "TEXT")
     private String reason;
 }
+
