@@ -1,0 +1,40 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1-create-request-table
+      author: alikhan
+      changes:
+        - createTable:
+            tableName: request
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                    primaryKeyName: pk_request
+              - column:
+                  name: client_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: description
+                  type: TEXT
+              - column:
+                  name: status
+                  type: VARCHAR(20)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+                  defaultValueComputed: NOW()
+                  constraints:
+                    nullable: false
+        - createIndex:
+            indexName: idx_request_client_id
+            tableName: request
+            columns:
+              - column:
+                  name: client_id
