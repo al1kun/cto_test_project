@@ -1,4 +1,4 @@
-package domain;
+package com.example.sto.common.domain;
 
 public enum RequestStatus {
     NEW,

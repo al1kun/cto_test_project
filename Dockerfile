@@ -4,11 +4,11 @@ RUN apt-get update && apt-get install -y maven && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /workspace
 
-COPY pom.xml .
+COPY ../pom.xml .
 
-COPY common common
-COPY notification notification
-COPY core core
+COPY ../common common
+COPY ../notification notification
+COPY ../core core
 
 RUN mvn clean package -pl core -am -DskipTests
 
