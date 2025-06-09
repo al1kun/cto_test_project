@@ -1,6 +1,6 @@
 package com.example.sto.core.kafka;
 
-import com.example.sto.common.domain.RequestStatus;
+import com.example.sto.core.request.model.enums.RequestStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

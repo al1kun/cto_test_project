@@ -1,6 +1,6 @@
 package com.example.sto.core.request.service.impl;
 
-import com.example.sto.common.domain.RequestStatus;
+import com.example.sto.core.request.model.enums.RequestStatus;
 import com.example.sto.core.history.model.RequestStatusHistory;
 import com.example.sto.core.history.repository.RequestStatusHistoryRepository;
 import com.example.sto.core.kafka.StatusChangeEvent;

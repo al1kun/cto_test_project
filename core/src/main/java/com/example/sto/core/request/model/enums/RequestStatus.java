@@ -1,4 +1,4 @@
-package com.example.sto.common.domain;
+package com.example.sto.core.request.model.enums;
 
 public enum RequestStatus {
     NEW,

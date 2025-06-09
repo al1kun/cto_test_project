@@ -1,6 +1,6 @@
 package com.example.sto.core.request.service;
 
-import com.example.sto.common.domain.RequestStatus;
+import com.example.sto.core.request.model.enums.RequestStatus;
 import com.example.sto.core.request.model.Request;
 
 import java.util.List;

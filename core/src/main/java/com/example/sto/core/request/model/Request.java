@@ -1,6 +1,6 @@
 package com.example.sto.core.request.model;
 
-import com.example.sto.common.domain.RequestStatus;
+import com.example.sto.core.request.model.enums.RequestStatus;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

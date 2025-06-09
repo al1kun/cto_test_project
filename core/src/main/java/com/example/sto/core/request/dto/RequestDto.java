@@ -1,6 +1,6 @@
 package com.example.sto.core.request.dto;
 
-import com.example.sto.common.domain.RequestStatus;
+import com.example.sto.core.request.model.enums.RequestStatus;
 import com.example.sto.core.request.model.Request;
 import lombok.AllArgsConstructor;
 import lombok.Data;
