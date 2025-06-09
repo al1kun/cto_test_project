@@ -1,7 +1,7 @@
 package com.example.sto.core.request.repository;
 
 import com.example.sto.common.domain.RequestStatus;
-import com.example.sto.core.request.domain.Request;
+import com.example.sto.core.request.model.Request;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

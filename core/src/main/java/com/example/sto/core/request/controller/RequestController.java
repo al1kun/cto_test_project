@@ -1,7 +1,7 @@
 package com.example.sto.core.request.controller;
 
 import com.example.sto.common.domain.RequestStatus;
-import com.example.sto.core.request.domain.Request;
+import com.example.sto.core.request.model.Request;
 import com.example.sto.core.request.dto.ChangeStatusDto;
 import com.example.sto.core.request.dto.CreateRequestDto;
 import com.example.sto.core.request.dto.RequestDto;
