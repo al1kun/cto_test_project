@@ -1,4 +1,4 @@
-package com.example.sto.core.history.domain;
+package com.example.sto.core.request.model;
 
 import com.example.sto.common.domain.RequestStatus;
 import jakarta.persistence.Column;
@@ -22,32 +22,24 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "request_status_history")
-public class RequestStatusHistory {
+@Table(name = "request")
+public class Request {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "request_id", nullable = false)
-    private Long requestId;
-
-    @Enumerated(EnumType.STRING)
-    @Column(name = "from_status")
-    private RequestStatus fromStatus;
-
-    @Enumerated(EnumType.STRING)
-    @Column(name = "to_status", nullable = false)
-    private RequestStatus toStatus;
-
-    @Column(name = "changed_by", length = 50)
-    private String changedBy;
-
-    @Column(name = "changed_at", nullable = false, updatable = false)
-    @Builder.Default
-    private LocalDateTime changedAt = LocalDateTime.now();
+    @Column(name = "client_id", nullable = false)
+    private Long clientId;
 
     @Column(columnDefinition = "TEXT")
-    private String reason;
-}
+    private String description;
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private RequestStatus status;
+
+    @Column(name = "created_at", nullable = false, updatable = false)
+    @Builder.Default
+    private LocalDateTime createdAt = LocalDateTime.now();
+}

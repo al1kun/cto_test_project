@@ -1,10 +1,10 @@
 package com.example.sto.core.request.service.impl;
 
 import com.example.sto.common.domain.RequestStatus;
-import com.example.sto.core.history.domain.RequestStatusHistory;
+import com.example.sto.core.history.model.RequestStatusHistory;
 import com.example.sto.core.history.repository.RequestStatusHistoryRepository;
 import com.example.sto.core.kafka.StatusChangeEvent;
-import com.example.sto.core.request.domain.Request;
+import com.example.sto.core.request.model.Request;
 import com.example.sto.core.request.repository.RequestRepository;
 import com.example.sto.core.request.service.RequestService;
 import com.example.sto.notification.Notifier;

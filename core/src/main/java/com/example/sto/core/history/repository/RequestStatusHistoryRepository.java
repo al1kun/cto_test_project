@@ -1,6 +1,6 @@
 package com.example.sto.core.history.repository;
 
-import com.example.sto.core.history.domain.RequestStatusHistory;
+import com.example.sto.core.history.model.RequestStatusHistory;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
