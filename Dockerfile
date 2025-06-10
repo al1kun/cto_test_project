@@ -6,7 +6,6 @@ WORKDIR /workspace
 
 COPY ../pom.xml .
 
-COPY ../common common
 COPY ../notification notification
 COPY ../core core
 
