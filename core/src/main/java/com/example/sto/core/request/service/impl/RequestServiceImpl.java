@@ -1,5 +1,7 @@
 package com.example.sto.core.request.service.impl;
 
+import com.example.sto.core.request.exception.InvalidRequestStatusException;
+import com.example.sto.core.request.exception.ResourceNotFoundException;
 import com.example.sto.core.request.model.enums.RequestStatus;
 import com.example.sto.core.history.model.RequestStatusHistory;
 import com.example.sto.core.history.repository.RequestStatusHistoryRepository;
@@ -56,13 +58,21 @@ public class RequestServiceImpl implements RequestService {
     @Override
     @Transactional(readOnly = true)
     public List<Request> getByClientId(Long clientId) {
-        return requestRepository.findByClientId(clientId);
+        List<Request> requests = requestRepository.findByClientId(clientId);
+        if (requests.isEmpty()) {
+            throw new ResourceNotFoundException("No request found for clientId: " + clientId);
+        }
+        return requests;
     }
 
     @Override
     @Transactional(readOnly = true)
     public List<Request> getByStatus(RequestStatus status) {
-        return requestRepository.findByStatus(status);
+        List<Request> requests = requestRepository.findByStatus(status);
+        if (requests.isEmpty()) {
+            throw new ResourceNotFoundException("No request found for status: " + status);
+        }
+        return requests;
     }
 
     @Override
@@ -73,9 +83,13 @@ public class RequestServiceImpl implements RequestService {
                                 String reason) {
 
         Request request = requestRepository.findById(requestId)
-                .orElseThrow(() -> new IllegalArgumentException("Request not found: " + requestId));
+                .orElseThrow(() -> new ResourceNotFoundException("Request not found with id: " + requestId));
 
         RequestStatus old = request.getStatus();
+        if (old == newStatus) {
+            throw new InvalidRequestStatusException("Cannot change status: already in " + newStatus);
+        }
+
         request.setStatus(newStatus);
         request = requestRepository.save(request);
 
