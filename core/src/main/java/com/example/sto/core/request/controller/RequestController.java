@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/requests")
 @RequiredArgsConstructor
-public class RequestController {
+public class RequestController{
 
     private final RequestService requestService;
 
@@ -44,25 +44,28 @@ public class RequestController {
     }
 
     @GetMapping("/by-client")
-    public List<RequestDto> getByClientId(
+    public ResponseEntity<List<RequestDto>> getByClientId(
             @RequestParam("clientId") Long clientId
     ) {
-        return requestService.getByClientId(clientId).stream()
+        List<RequestDto> list = requestService.getByClientId(clientId).stream()
                 .map(RequestDto::fromEntity)
                 .collect(Collectors.toList());
+        return ResponseEntity.ok(list);
     }
 
+
     @GetMapping("/by-status")
-    public List<RequestDto> getByStatus(
+    public ResponseEntity<List<RequestDto>> getByStatus(
             @RequestParam("status") RequestStatus status
     ) {
-        return requestService.getByStatus(status).stream()
+        List<RequestDto> list = requestService.getByStatus(status).stream()
                 .map(RequestDto::fromEntity)
                 .collect(Collectors.toList());
+        return ResponseEntity.ok(list);
     }
 
     @PutMapping("/{id}/status")
-    public RequestDto changeStatus(
+    public ResponseEntity<RequestDto> changeStatus(
             @PathVariable("id") Long requestId,
             @Valid @RequestBody ChangeStatusDto changeStatusDto
     ) {
@@ -72,6 +75,6 @@ public class RequestController {
                 changeStatusDto.getChangedBy(),
                 changeStatusDto.getReason()
         );
-        return RequestDto.fromEntity(updated);
+        return ResponseEntity.ok(RequestDto.fromEntity(updated));
     }
 }
