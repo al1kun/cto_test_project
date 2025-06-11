@@ -1,0 +1,42 @@
+databaseChangeLog:
+  - changeSet:
+      id: 3-seed-requests
+      author: alikhan
+      contexts: development
+      changes:
+        - insert:
+            tableName: request
+            columns:
+              - column:
+                  name: id
+                  valueNumeric: 1001
+              - column:
+                  name: client_id
+                  valueNumeric: 501
+              - column:
+                  name: description
+                  value: 'Testing request'
+              - column:
+                  name: status
+                  value: 'NEW'
+              - column:
+                  name: created_at
+                  valueDate: "2025-01-01T10:00:00"
+        - insert:
+            tableName: request
+            columns:
+              - column:
+                  name: id
+                  valueNumeric: 1002
+              - column:
+                  name: client_id
+                  valueNumeric: 502
+              - column:
+                  name: description
+                  value: 'Second sample request'
+              - column:
+                  name: status
+                  value: 'IN_SCOPE'
+              - column:
+                  name: created_at
+                  valueDate: "2025-01-02T11:30:00"
