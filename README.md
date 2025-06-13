@@ -154,10 +154,8 @@ mvn spring-boot:run
 ## Запуск тестов
 
 ```bash
-{
   cd core
   mvn test
-}
 ```
 
 > **Unit и Integration тесты** поднимают контейнер PostgreSQL через Testcontainers.
